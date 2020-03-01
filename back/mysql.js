@@ -27,8 +27,9 @@ let allServices = {
         })
 
     },
-   findUserData: function (name) {
-        let _sql = `select * from user where username="${name}";`
+   findUserData: function () {
+        // let _sql = `select * from user where username="${name}";`
+        let _sql = "select * from goods;"
         return allServices.query(_sql)
     },
     addUserData: (obj) => {

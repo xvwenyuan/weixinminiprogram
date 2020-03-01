@@ -40,9 +40,21 @@ router.get('/hello/:name', async (ctx, next) => {
 });
 
 // add url-route:
-router.get('/json', async (ctx, next) => {
-    const json = { 1: 2, 3: 4 };
-    ctx.response.body = JSON.stringify(json);
+// router.get('/json', async (ctx, next) => {
+//     const json = { 1: 2, 3: 4 };
+//     ctx.response.body = JSON.stringify(json);
+// });
+router.get('/goods', async (ctx, next) => {
+    try {
+        let goodsList =  await findUserData();
+        console.log(goodsList);
+        // goodsList = JSON.parse(JSON.stringify(res))[0];
+        ctx.response.body = JSON.stringify(goodsList);
+    } catch (error) {
+        console.log('error')
+    }
+    
+    
 });
 
 // add url-route:
